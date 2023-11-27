@@ -107,7 +107,12 @@ function App() {
       <SafeAreaView>
         <ScrollView>
           <View style={styles.root}>
-            <View style={{flexDirection: 'row', gap: 5, alignItems: 'center'}}>
+            <View
+              style={{
+                flexDirection: 'row',
+                gap: 5,
+                alignItems: 'center',
+              }}>
               <View style={{paddingRight: 10, width: '90%'}}>
                 <Searchbar
                   width="80%"
@@ -118,7 +123,7 @@ function App() {
                 />
               </View>
               <Image
-                source={require('./assets/menu.png')}
+                source={require('./assets/more.png')}
                 style={{height: 30, width: 30}}></Image>
             </View>
             <Text style={styles.heading1}>Popular for You</Text>
@@ -133,7 +138,7 @@ function App() {
                     style={{
                       width: 64,
                       height: 64,
-                      backgroundColor: '#F3EEEA',
+                      backgroundColor: '#FFF6E0',
                       borderRadius: 20,
                       justifyContent: 'center',
                       alignItems: 'center',
@@ -151,22 +156,30 @@ function App() {
                 </View>
               ))}
             </View>
-            <Text style={styles.heading1}>New Recipes</Text>
-            {/* New recipe content start */}
-            <ScrollView horizontal={true}>
-              <View style={{flexDirection: 'row', gap: 5}}>
-                {newRecipe.map((item, key) => (
-                  <View key={key}>
-                    <ImageBackground
-                      source={item.menu}
-                      imageStyle={{borderRadius: 16}}
-                      style={styles.boxShadow}>
-                      <Text style={styles.textWithShadow}>{item.foodName}</Text>
-                    </ImageBackground>
-                  </View>
-                ))}
-              </View>
-            </ScrollView>
+            <View
+              style={{
+                marginTop: 5,
+                paddingTop: 5,
+              }}>
+              <Text style={styles.heading2}>New Recipes</Text>
+              {/* New recipe content start */}
+              <ScrollView horizontal={true}>
+                <View style={{flexDirection: 'row', gap: 5}}>
+                  {newRecipe.map((item, key) => (
+                    <View key={key}>
+                      <ImageBackground
+                        source={item.menu}
+                        imageStyle={{borderRadius: 20}}
+                        style={styles.boxShadow}>
+                        <Text style={styles.textWithShadow}>
+                          {item.foodName}
+                        </Text>
+                      </ImageBackground>
+                    </View>
+                  ))}
+                </View>
+              </ScrollView>
+            </View>
             {/* New recipe content end */}
 
             <Text style={styles.heading1}>Popular Recipes</Text>
@@ -177,7 +190,7 @@ function App() {
                   style={{
                     gap: 20,
                     flexDirection: 'row',
-                    backgroundColor: '#F3EEEA',
+                    backgroundColor: '#FFF6E0',
                     borderRadius: 15,
                     padding: 5,
                   }}>
@@ -225,11 +238,16 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   searchBox: {
-    backgroundColor: '#EFEFEF',
+    backgroundColor: '#FFF6E0',
     borderColor: 'black',
   },
   heading1: {
     marginTop: 20,
+    marginBottom: 10,
+    fontSize: 20,
+    color: 'black',
+  },
+  heading2: {
     marginBottom: 10,
     fontSize: 20,
     color: 'black',
@@ -240,15 +258,15 @@ const styles = StyleSheet.create({
     paddingTop: 130,
     fontSize: 15,
     color: '#fff',
-    textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    textShadowOffset: {width: -1, height: 1},
-    textShadowRadius: 20,
+    textShadowColor: 'black',
+    textShadowOffset: {width: 2, height: 2},
+    textShadowRadius: 5,
   },
   boxShadow: {
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
+    shadowColor: 'black',
+    shadowOffset: {width: 3, height: 3},
+    shadowOpacity: 1,
+    shadowRadius: 5,
     width: 130,
     height: 160,
   },
