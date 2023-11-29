@@ -129,7 +129,7 @@ function App() {
             <Text style={styles.heading1}>Popular for You</Text>
             <View
               style={{
-                gap: 20,
+                justifyContent: 'space-between',
                 flexDirection: 'row',
               }}>
               {menuCategory.map(item => (
@@ -138,7 +138,7 @@ function App() {
                     style={{
                       width: 64,
                       height: 64,
-                      backgroundColor: '#FFF6E0',
+                      backgroundColor: '#FFEAD2',
                       borderRadius: 20,
                       justifyContent: 'center',
                       alignItems: 'center',
@@ -183,14 +183,14 @@ function App() {
             {/* New recipe content end */}
 
             <Text style={styles.heading1}>Popular Recipes</Text>
-            <View style={{marginTop: 10, gap: 5}}>
+            <View style={{gap: 5}}>
               {/* popular food content start */}
               {popularRecipe.map(item => (
                 <View
                   style={{
                     gap: 20,
                     flexDirection: 'row',
-                    backgroundColor: '#FFF6E0',
+                    backgroundColor: '#FFEAD2',
                     borderRadius: 15,
                     padding: 5,
                   }}>
@@ -238,7 +238,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   searchBox: {
-    backgroundColor: '#FFF6E0',
+    backgroundColor: '#FFEAD2',
     borderColor: 'black',
   },
   heading1: {
@@ -246,9 +246,17 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontSize: 20,
     color: 'black',
+    backgroundColor: '#fdc6ae',
+    borderRadius: 15,
+    paddingHorizontal: 7,
+    paddingVertical: 5,
   },
   heading2: {
     marginBottom: 10,
+    backgroundColor: '#fdc6ae',
+    borderRadius: 15,
+    paddingHorizontal: 7,
+    paddingVertical: 5,
     fontSize: 20,
     color: 'black',
   },
