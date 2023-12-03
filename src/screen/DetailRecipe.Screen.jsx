@@ -149,11 +149,7 @@ export default function DetailRecipeScreen({route, navigation}) {
           {bodyView === 'video' ? (
             <View style={{width: '100%', padding: 5}}>
               <TouchableWithoutFeedback
-                onPress={() =>
-                  Linking.openURL(
-                    youtube?.link
-                  )
-                }>
+                onPress={() => Linking.openURL(youtube?.link)}>
                 <View
                   style={{
                     backgroundColor: '#FFEAD2',
@@ -162,22 +158,25 @@ export default function DetailRecipeScreen({route, navigation}) {
                     flexDirection: 'row',
                     gap: 20,
                   }}>
-                  <View
-                    style={{
-                      backgroundColor: '#fe976a',
-                      height: 70,
-                      width: 70,
-                      borderRadius: 20,
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                    }}>
-                    <Icon name="play" size={30} color="#fff" />
+                  <View style={{justifyContent: 'center'}}>
+                    <View
+                      style={{
+                        backgroundColor: '#fe976a',
+                        height: 70,
+                        width: 70,
+                        borderRadius: 20,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }}>
+                      <Icon name="play" size={30} color="#fff" />
+                    </View>
                   </View>
                   <View>
                     <Text
                       style={{
                         color: '#666',
                         fontSize: 22,
+                        width: 200,
                         textTransform: 'capitalize',
                       }}>
                       {title}
