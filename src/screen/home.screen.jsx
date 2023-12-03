@@ -23,7 +23,8 @@ function HomeScreen({navigation}) {
           source={require('../assets/soup.png')}
         />
       ),
-      type: 'Soup',
+      jenis: 'soup',
+      name: 'Soup',
     },
     {
       icon: (
@@ -32,7 +33,8 @@ function HomeScreen({navigation}) {
           source={require('../assets/seafood.png')}
         />
       ),
-      type: 'SeaFood',
+      jenis: 'seafood',
+      name: 'SeaFood',
     },
     {
       icon: (
@@ -41,7 +43,8 @@ function HomeScreen({navigation}) {
           source={require('../assets/fast-food.png')}
         />
       ),
-      type: 'FastFood',
+      jenis: 'fastfood',
+      name: 'FastFood',
     },
     {
       icon: (
@@ -50,7 +53,8 @@ function HomeScreen({navigation}) {
           source={require('../assets/drink.png')}
         />
       ),
-      type: 'Drink',
+      jenis: 'drink',
+      name: 'Drink',
     },
   ];
   const newRecipe = [
@@ -132,7 +136,7 @@ function HomeScreen({navigation}) {
             <TouchableWithoutFeedback
               key={key}
               onPress={() => {
-                navigation.navigate('Kategori', item.type);
+                navigation.navigate('Kategori', item);
               }}>
               <View>
                 <View
@@ -152,7 +156,7 @@ function HomeScreen({navigation}) {
                     marginTop: 5,
                     color: 'black',
                   }}>
-                  {item.type}
+                  {item.name}
                 </Text>
               </View>
             </TouchableWithoutFeedback>

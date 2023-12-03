@@ -12,7 +12,7 @@ import {Button, Text} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
 export default function DetailRecipeScreen({route, navigation}) {
-  const [bodyView, setBodyView] = React.useState('ingredient');
+  const [bodyView, setBodyView] = React.useState('video');
   const ingredientExample = [
     '- 2 slices whole-grain bread (bakery-fresh recommended)',
     '- 1 tablespoon hummus',
