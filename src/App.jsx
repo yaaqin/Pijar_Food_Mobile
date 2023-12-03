@@ -17,6 +17,11 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import HomeScreen from './screen/home.screen';
 import DetailRecipeScreen from './screen/DetailRecipe.Screen';
+import Hamburgerscreen from './screen/Hamburger.screen';
+import Loginscreen from './screen/Login.screen';
+import Registerscreen from './screen/Register.screen';
+import Profilescreen from './screen/Profile.screen';
+import Kategoriscreen from './screen/Kategori.screen';
 
 function App() {
   const Stack = createNativeStackNavigator();
@@ -30,8 +35,33 @@ function App() {
             options={{headerShown: false}}
           />
           <Stack.Screen
+            name="Hamburger"
+            component={Hamburgerscreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
             name="Detail_Recipe"
             component={DetailRecipeScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Profile"
+            component={Profilescreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Login"
+            component={Loginscreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Register"
+            component={Registerscreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Kategori"
+            component={Kategoriscreen}
             options={{headerShown: false}}
           />
         </Stack.Navigator>

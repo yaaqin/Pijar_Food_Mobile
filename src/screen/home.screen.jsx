@@ -8,8 +8,10 @@ import {
   ImageBackground,
   ScrollView,
   TouchableHighlight,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import {Searchbar} from 'react-native-paper';
+import recipeList from '../api/recipe.json';
 
 function HomeScreen({navigation}) {
   const [keyword, setKeyword] = React.useState('');
@@ -69,32 +71,32 @@ function HomeScreen({navigation}) {
       foodName: 'Chicken Soup',
     },
   ];
-  const popularRecipe = [
-    {
-      foodName: 'Ice Green Tea',
-      foodPicture: require('../assets/ice-green-tea.jpg'),
-      desk: ['Fresh', 'Cold'],
-      rating: 4.7,
-    },
-    {
-      foodName: 'Burger',
-      foodPicture: require('../assets/burger.jpg'),
-      desk: ['Spicy', 'Hot'],
-      rating: 4.9,
-    },
-    {
-      foodName: 'Fried Anchovies',
-      foodPicture: require('../assets/menu-2.png'),
-      desk: ['Spicy', 'Salted'],
-      rating: 4.4,
-    },
-    {
-      foodName: 'Dungeness Crab',
-      foodPicture: require('../assets/Dungeness-crab.jpg'),
-      desk: ['Spicy', 'Salted'],
-      rating: 4.8,
-    },
-  ];
+  // const popularRecipe = [
+  //   {
+  //     foodName: 'Ice Green Tea',
+  //     foodPicture: require('../assets/ice-green-tea.jpg'),
+  //     desk: ['Fresh', 'Cold'],
+  //     rating: 4.7,
+  //   },
+  //   {
+  //     foodName: 'Burger',
+  //     foodPicture: require('../assets/burger.jpg'),
+  //     desk: ['Spicy', 'Hot'],
+  //     rating: 4.9,
+  //   },
+  //   {
+  //     foodName: 'Fried Anchovies',
+  //     foodPicture: require('../assets/menu-2.png'),
+  //     desk: ['Spicy', 'Salted'],
+  //     rating: 4.4,
+  //   },
+  //   {
+  //     foodName: 'Dungeness Crab',
+  //     foodPicture: require('../assets/Dungeness-crab.jpg'),
+  //     desk: ['Spicy', 'Salted'],
+  //     rating: 4.8,
+  //   },
+  // ];
   return (
     <ScrollView>
       <View style={styles.root}>
@@ -113,9 +115,12 @@ function HomeScreen({navigation}) {
               onChangeText={text => setKeyword(text)}
             />
           </View>
-          <Image
-            source={require('../assets/more.png')}
-            style={{height: 30, width: 30}}></Image>
+          <TouchableWithoutFeedback
+            onPress={() => navigation.navigate('Hamburger')}>
+            <Image
+              source={require('../assets/more.png')}
+              style={{height: 30, width: 30}}></Image>
+          </TouchableWithoutFeedback>
         </View>
         <Text style={styles.heading1}>Popular for You</Text>
         <View
@@ -123,28 +128,34 @@ function HomeScreen({navigation}) {
             justifyContent: 'space-between',
             flexDirection: 'row',
           }}>
-          {menuCategory.map(item => (
-            <View>
-              <View
-                style={{
-                  width: 64,
-                  height: 64,
-                  backgroundColor: '#FFEAD2',
-                  borderRadius: 20,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}>
-                {item.icon}
+          {menuCategory.map((item, key) => (
+            <TouchableWithoutFeedback
+              key={key}
+              onPress={() => {
+                navigation.navigate('Kategori', item.type);
+              }}>
+              <View>
+                <View
+                  style={{
+                    width: 64,
+                    height: 64,
+                    backgroundColor: '#FFEAD2',
+                    borderRadius: 20,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  {item.icon}
+                </View>
+                <Text
+                  style={{
+                    textAlign: 'center',
+                    marginTop: 5,
+                    color: 'black',
+                  }}>
+                  {item.type}
+                </Text>
               </View>
-              <Text
-                style={{
-                  textAlign: 'center',
-                  marginTop: 5,
-                  color: 'black',
-                }}>
-                {item.type}
-              </Text>
-            </View>
+            </TouchableWithoutFeedback>
           ))}
         </View>
         <View
@@ -156,22 +167,24 @@ function HomeScreen({navigation}) {
           {/* New recipe content start */}
           <ScrollView horizontal={true}>
             <View style={{flexDirection: 'row', gap: 5}}>
-              {newRecipe.map((item, key) => (
-                <TouchableHighlight
-                  key={key}
-                  onPress={() => {
-                    navigation.navigate('Detail_Recipe');
-                  }}>
-                  <View>
-                    <ImageBackground
-                      source={item.menu}
-                      imageStyle={{borderRadius: 20}}
-                      style={styles.boxShadow}>
-                      <Text style={styles.textWithShadow}>{item.foodName}</Text>
-                    </ImageBackground>
-                  </View>
-                </TouchableHighlight>
-              ))}
+              {recipeList
+                ?.filter(recipe => recipe.isNew)
+                .map((item, key) => (
+                  <TouchableWithoutFeedback
+                    key={key}
+                    onPress={() => {
+                      navigation.navigate('Detail_Recipe', item);
+                    }}>
+                    <View>
+                      <ImageBackground
+                        source={{uri: item.image}}
+                        imageStyle={{borderRadius: 20}}
+                        style={styles.boxShadow}>
+                        <Text style={styles.textWithShadow}>{item.title}</Text>
+                      </ImageBackground>
+                    </View>
+                  </TouchableWithoutFeedback>
+                ))}
             </View>
           </ScrollView>
         </View>
@@ -180,43 +193,49 @@ function HomeScreen({navigation}) {
         <Text style={styles.heading1}>Popular Recipes</Text>
         <View style={{gap: 5}}>
           {/* popular food content start */}
-          {popularRecipe.map(item => (
-            <View
-              style={{
-                gap: 20,
-                flexDirection: 'row',
-                backgroundColor: '#FFEAD2',
-                borderRadius: 15,
-                padding: 5,
-              }}>
-              <View style={{justifyContent: 'center'}}>
-                <Image
-                  style={{width: 64, height: 64, borderRadius: 16}}
-                  source={item.foodPicture}
-                />
-              </View>
-              <View>
-                <Text style={{fontSize: 16, color: 'black'}}>
-                  {item.foodName}
-                </Text>
-                <View style={{flexDirection: 'row'}}>
-                  {item.desk.map(value => (
-                    <Text>{value}, </Text>
-                  ))}
-                </View>
+          {recipeList
+            ?.filter(recipe => recipe.isPopular)
+            .map((item, key) => (
+              <TouchableWithoutFeedback
+                key={key}
+                onPress={() => {
+                  navigation.navigate('Detail_Recipe', item);
+                }}>
                 <View
                   style={{
+                    gap: 20,
                     flexDirection: 'row',
-                    gap: 5,
-                    alignItems: 'center',
-                    marginTop: 3,
+                    backgroundColor: '#FFEAD2',
+                    borderRadius: 15,
+                    padding: 5,
                   }}>
-                  <Image source={require('../assets/stars.png')} />
-                  <Text>{item.rating}</Text>
+                  <View style={{justifyContent: 'center'}}>
+                    <Image
+                      style={{width: 64, height: 64, borderRadius: 16}}
+                      source={{uri: item.image}}
+                    />
+                  </View>
+                  <View>
+                    <Text style={{fontSize: 16, color: 'black'}}>
+                      {item.title}
+                    </Text>
+                    <View style={{flexDirection: 'row'}}>
+                      <Text>{item.desk}</Text>
+                    </View>
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        gap: 5,
+                        alignItems: 'center',
+                        marginTop: 3,
+                      }}>
+                      <Image source={require('../assets/stars.png')} />
+                      <Text>{item.rating}</Text>
+                    </View>
+                  </View>
                 </View>
-              </View>
-            </View>
-          ))}
+              </TouchableWithoutFeedback>
+            ))}
         </View>
       </View>
     </ScrollView>
