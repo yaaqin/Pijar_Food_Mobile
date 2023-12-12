@@ -3,8 +3,15 @@ import React from 'react';
 import {View, Text, Touchable, TouchableWithoutFeedback} from 'react-native';
 import {Button} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Hamburgerscreen({navigation}) {
+  const handleLogout = async () => {
+    await AsyncStorage.removeItem('users')
+    setTimeout(() => {
+      navigation.navigate('Home')
+    }, 2000);
+  }
   return (
     <View style={{padding: 20}}>
       <TouchableWithoutFeedback
@@ -72,6 +79,16 @@ export default function Hamburgerscreen({navigation}) {
               Profile
             </Button>
           </TouchableWithoutFeedback>
+            <Button
+            onPress={() => handleLogout()}
+              style={{
+                backgroundColor: '#FFEAD2',
+                borderColor: '#fdc6ae',
+                borderWidth: 2,
+              }}
+              labelStyle={{color: 'black', padding: 8, fontSize: 18}}>
+              Logout
+            </Button>
         </View>
       </View>
     </View>

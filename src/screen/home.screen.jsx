@@ -14,7 +14,6 @@ import {Searchbar} from 'react-native-paper';
 import recipeList from '../api/recipe.json';
 
 function HomeScreen({navigation}) {
-  const [keyword, setKeyword] = React.useState('');
   const menuCategory = [
     {
       icon: (
@@ -23,7 +22,7 @@ function HomeScreen({navigation}) {
           source={require('../assets/soup.png')}
         />
       ),
-      jenis: 'soup',
+      type: 'soup',
       name: 'Soup',
     },
     {
@@ -33,7 +32,7 @@ function HomeScreen({navigation}) {
           source={require('../assets/seafood.png')}
         />
       ),
-      jenis: 'seafood',
+      type: 'seafood',
       name: 'SeaFood',
     },
     {
@@ -43,7 +42,7 @@ function HomeScreen({navigation}) {
           source={require('../assets/fast-food.png')}
         />
       ),
-      jenis: 'fastfood',
+      type: 'fastfood',
       name: 'FastFood',
     },
     {
@@ -53,72 +52,43 @@ function HomeScreen({navigation}) {
           source={require('../assets/drink.png')}
         />
       ),
-      jenis: 'drink',
+      type: 'drink',
       name: 'Drink',
     },
   ];
-  const newRecipe = [
-    {
-      menu: require('../assets/sandwitch.jpg'),
-      foodName: 'Sandwitch',
-    },
-    {
-      menu: require('../assets/vietnam-seafood.jpg'),
-      foodName: 'Vietnam Seafood',
-    },
-    {
-      menu: require('../assets/oxtail-soup.jpg'),
-      foodName: 'Oxtail Soup',
-    },
-    {
-      menu: require('../assets/chicken-soup.jpg'),
-      foodName: 'Chicken Soup',
-    },
-  ];
-  // const popularRecipe = [
-  //   {
-  //     foodName: 'Ice Green Tea',
-  //     foodPicture: require('../assets/ice-green-tea.jpg'),
-  //     desk: ['Fresh', 'Cold'],
-  //     rating: 4.7,
-  //   },
-  //   {
-  //     foodName: 'Burger',
-  //     foodPicture: require('../assets/burger.jpg'),
-  //     desk: ['Spicy', 'Hot'],
-  //     rating: 4.9,
-  //   },
-  //   {
-  //     foodName: 'Fried Anchovies',
-  //     foodPicture: require('../assets/menu-2.png'),
-  //     desk: ['Spicy', 'Salted'],
-  //     rating: 4.4,
-  //   },
-  //   {
-  //     foodName: 'Dungeness Crab',
-  //     foodPicture: require('../assets/Dungeness-crab.jpg'),
-  //     desk: ['Spicy', 'Salted'],
-  //     rating: 4.8,
-  //   },
-  // ];
+
+  //search logic
+  const [keywords, setKeyword] = React.useState(null);
+  const [ListSearch, setListSearch] = React.useState([]);
+
+  const searchData = async keyword => {
+    if (keyword.length === 0 || keyword === null) {
+      setListSearch([]);
+      setKeyword(null);
+    } else {
+      setKeyword(keyword);
+      keyword = keyword.toLowerCase();
+      const result = await recipeList.filter(item =>
+        item.title.toLowerCase().includes(keyword),
+      );
+      setListSearch(result);
+      // console.log(result);
+    }
+  };
+  // const jadi = searchData(keywords)
+
   return (
     <ScrollView>
-      <View style={styles.root}>
-        <View
-          style={{
-            flexDirection: 'row',
-            gap: 5,
-            alignItems: 'center',
-          }}>
-          <View style={{paddingRight: 10, width: '90%'}}>
-            <Searchbar
-              width="80%"
-              placeholder="Search Pasta, Bread, etc"
-              value={keyword}
-              style={styles.searchBox}
-              onChangeText={text => setKeyword(text)}
-            />
-          </View>
+      <View
+        style={{
+          height: 250,
+          backgroundColor: '#EFC81A',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          position: 'relative',
+        }}>
+        <View style={{position: 'absolute', right: 20, top: 20}}>
           <TouchableWithoutFeedback
             onPress={() => navigation.navigate('Hamburger')}>
             <Image
@@ -126,122 +96,212 @@ function HomeScreen({navigation}) {
               style={{height: 30, width: 30}}></Image>
           </TouchableWithoutFeedback>
         </View>
-        <Text style={styles.heading1}>Popular for You</Text>
-        <View
-          style={{
-            justifyContent: 'space-between',
-            flexDirection: 'row',
-          }}>
-          {menuCategory.map((item, key) => (
+        <Image
+          source={require('../assets/chef-mama.png')}
+          style={{width: 180, height: 180}}></Image>
+      </View>
+      <View
+        style={{
+          marginTop: -50,
+          width: '100%',
+          backgroundColor: '#EFC81A',
+          padding: 10,
+          zIndex: 3,
+          borderRadius: 40,
+        }}>
+        <Searchbar
+          width="100%"
+          placeholder="Search Pasta, Bread, etc"
+          style={styles.searchBox}
+          onChangeText={searchData}
+        />
+      </View>
+
+      {ListSearch.length > 0 && keywords !== null && keywords.length > 0 ? (
+        <View style={{padding: 20, gap: 10}}>
+          {ListSearch.map((item, key) => (
             <TouchableWithoutFeedback
               key={key}
               onPress={() => {
-                navigation.navigate('Kategori', item);
+                navigation.navigate('Detail_Recipe', item);
               }}>
-              <View>
-                <View
-                  style={{
-                    width: 64,
-                    height: 64,
-                    backgroundColor: '#FFEAD2',
-                    borderRadius: 20,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}>
-                  {item.icon}
+              <View
+                style={{
+                  borderWidth: 2,
+                  width: '100%',
+                  height: 90,
+                  borderRadius: 25,
+                  borderColor: 'grey',
+                  flexDirection: 'row',
+                  gap: 10,
+                }}>
+                <View style={{justifyContent: 'center', marginLeft: 10}}>
+                  <Image
+                    style={{width: 64, height: 64, borderRadius: 16}}
+                    source={{uri: item.image}}
+                  />
                 </View>
-                <Text
-                  style={{
-                    textAlign: 'center',
-                    marginTop: 5,
-                    color: 'black',
-                  }}>
-                  {item.name}
-                </Text>
+                <View style={{justifyContent: 'center'}}>
+                  <Text style={{fontSize: 18, color: 'black'}}>
+                    {item.title}
+                  </Text>
+                  <View style={{flexDirection: 'row'}}>
+                    <Text>{item.desk}</Text>
+                  </View>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      gap: 5,
+                      alignItems: 'center',
+                      marginTop: 3,
+                    }}>
+                    <Image source={require('../assets/stars.png')} />
+                    <Text>{item.rating}</Text>
+                  </View>
+                </View>
               </View>
             </TouchableWithoutFeedback>
           ))}
         </View>
-        <View
-          style={{
-            marginTop: 5,
-            paddingTop: 5,
-          }}>
-          <Text style={styles.heading2}>New Recipes</Text>
-          {/* New recipe content start */}
-          <ScrollView horizontal={true}>
-            <View style={{flexDirection: 'row', gap: 5}}>
-              {recipeList
-                ?.filter(recipe => recipe.isNew)
-                .map((item, key) => (
-                  <TouchableWithoutFeedback
-                    key={key}
-                    onPress={() => {
-                      navigation.navigate('Detail_Recipe', item);
-                    }}>
-                    <View>
-                      <ImageBackground
-                        source={{uri: item.image}}
-                        imageStyle={{borderRadius: 20}}
-                        style={styles.boxShadow}>
-                        <Text style={styles.textWithShadow}>{item.title}</Text>
-                      </ImageBackground>
-                    </View>
-                  </TouchableWithoutFeedback>
-                ))}
-            </View>
-          </ScrollView>
+      ) : ListSearch.length === 0 &&
+        keywords !== null &&
+        keywords.length > 0 ? (
+        <View style={{padding: 20, justifyContent: 'center'}}>
+          <Text style={{textAlign: 'center', color: '#444', fontSize: 17}}>
+            No suitable menu
+          </Text>
         </View>
-        {/* New recipe content end */}
-
-        <Text style={styles.heading1}>Popular Recipes</Text>
-        <View style={{gap: 5}}>
-          {/* popular food content start */}
-          {recipeList
-            ?.filter(recipe => recipe.isPopular)
-            .map((item, key) => (
+      ) : (
+        <View style={styles.root}>
+          <View
+            style={{
+              flexDirection: 'row',
+              gap: 5,
+              alignItems: 'center',
+            }}></View>
+          <Text style={styles.heading1}>Category</Text>
+          <View
+            style={{
+              justifyContent: 'space-between',
+              flexDirection: 'row',
+            }}>
+            {menuCategory.map((item, key) => (
               <TouchableWithoutFeedback
                 key={key}
                 onPress={() => {
-                  navigation.navigate('Detail_Recipe', item);
+                  navigation.navigate('Kategori', item);
                 }}>
-                <View
-                  style={{
-                    gap: 20,
-                    flexDirection: 'row',
-                    backgroundColor: '#FFEAD2',
-                    borderRadius: 15,
-                    padding: 5,
-                  }}>
-                  <View style={{justifyContent: 'center'}}>
-                    <Image
-                      style={{width: 64, height: 64, borderRadius: 16}}
-                      source={{uri: item.image}}
-                    />
+                <View>
+                  <View
+                    style={{
+                      width: 64,
+                      height: 64,
+                      backgroundColor: '#FFEAD4',
+                      borderRadius: 20,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      // shadowColor: 'black',
+                      // shadowOffset: {width: 3, height: 4},
+                      // shadowOpacity: 0.5,
+                      // shadowRadius: 10,
+                    }}>
+                    {item.icon}
                   </View>
-                  <View>
-                    <Text style={{fontSize: 16, color: 'black'}}>
-                      {item.title}
-                    </Text>
-                    <View style={{flexDirection: 'row'}}>
-                      <Text>{item.desk}</Text>
-                    </View>
-                    <View
-                      style={{
-                        flexDirection: 'row',
-                        gap: 5,
-                        alignItems: 'center',
-                        marginTop: 3,
-                      }}>
-                      <Image source={require('../assets/stars.png')} />
-                      <Text>{item.rating}</Text>
-                    </View>
-                  </View>
+                  <Text
+                    style={{
+                      textAlign: 'center',
+                      marginTop: 5,
+                      color: 'black',
+                    }}>
+                    {item.name}
+                  </Text>
                 </View>
               </TouchableWithoutFeedback>
             ))}
+          </View>
+          <View
+            style={{
+              marginTop: 5,
+              paddingTop: 5,
+            }}>
+            <Text style={styles.heading2}>New Recipes</Text>
+            {/* New recipe content start */}
+            <ScrollView horizontal={true}>
+              <View style={{flexDirection: 'row', gap: 5}}>
+                {recipeList
+                  ?.filter(recipe => recipe.isNew)
+                  .map((item, key) => (
+                    <TouchableWithoutFeedback
+                      key={key}
+                      onPress={() => {
+                        navigation.navigate('Detail_Recipe', item);
+                      }}>
+                      <View>
+                        <ImageBackground
+                          source={{uri: item.image}}
+                          imageStyle={{borderRadius: 20}}
+                          style={styles.boxShadow}>
+                          <Text style={styles.textWithShadow}>
+                            {item.title}
+                          </Text>
+                        </ImageBackground>
+                      </View>
+                    </TouchableWithoutFeedback>
+                  ))}
+              </View>
+            </ScrollView>
+          </View>
+          {/* New recipe content end */}
+
+          <Text style={styles.heading3}>Popular Recipes</Text>
+          <View style={{gap: 5}}>
+            {/* popular food content start */}
+            {recipeList
+              ?.filter(recipe => recipe.isPopular)
+              .map((item, key) => (
+                <TouchableWithoutFeedback
+                  key={key}
+                  onPress={() => {
+                    navigation.navigate('Detail_Recipe', item);
+                  }}>
+                  <View
+                    style={{
+                      gap: 20,
+                      flexDirection: 'row',
+                      backgroundColor: '#FFEAD2',
+                      borderRadius: 15,
+                      padding: 5,
+                    }}>
+                    <View style={{justifyContent: 'center'}}>
+                      <Image
+                        style={{width: 64, height: 64, borderRadius: 16}}
+                        source={{uri: item.image}}
+                      />
+                    </View>
+                    <View>
+                      <Text style={{fontSize: 16, color: 'black'}}>
+                        {item.title}
+                      </Text>
+                      <View style={{flexDirection: 'row'}}>
+                        <Text>{item.desk}</Text>
+                      </View>
+                      <View
+                        style={{
+                          flexDirection: 'row',
+                          gap: 5,
+                          alignItems: 'center',
+                          marginTop: 3,
+                        }}>
+                        <Image source={require('../assets/stars.png')} />
+                        <Text>{item.rating}</Text>
+                      </View>
+                    </View>
+                  </View>
+                </TouchableWithoutFeedback>
+              ))}
+          </View>
         </View>
-      </View>
+      )}
     </ScrollView>
   );
 }
@@ -249,29 +309,43 @@ function HomeScreen({navigation}) {
 const styles = StyleSheet.create({
   root: {
     padding: 20,
+    marginTop: -20,
+    backgroundColor: '#FFF5EC',
+    // borderRadius: 30,
   },
   searchBox: {
     backgroundColor: '#FFEAD2',
     borderColor: 'black',
   },
   heading1: {
-    marginTop: 20,
-    marginBottom: 10,
+    marginTop: 10,
+    // marginBottom: 10,
     fontSize: 20,
-    color: 'black',
-    backgroundColor: '#fdc6ae',
+    color: '#333',
+    // backgroundColor: '#fdc6ae',
     borderRadius: 15,
     paddingHorizontal: 7,
     paddingVertical: 5,
   },
   heading2: {
-    marginBottom: 10,
-    backgroundColor: '#fdc6ae',
+    marginTop: 10,
+    // marginBottom: 10,
+    // backgroundColor: '#fdc6ae',
     borderRadius: 15,
     paddingHorizontal: 7,
     paddingVertical: 5,
     fontSize: 20,
-    color: 'black',
+    color: '#333',
+  },
+  heading3: {
+    marginTop: 20,
+    // marginBottom: 5,
+    fontSize: 20,
+    color: '#333',
+    // backgroundColor: '#fdc6ae',
+    borderRadius: 15,
+    paddingHorizontal: 7,
+    paddingVertical: 5,
   },
   textWithShadow: {
     justifyContent: 'flex-end',
