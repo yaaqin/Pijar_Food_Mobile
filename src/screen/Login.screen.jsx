@@ -48,6 +48,7 @@ export default function Loginscreen({navigation}) {
               JSON.stringify(tempData[0]?._data),
               setVisible(true),
             );
+            console.log(JSON.stringify(tempData[0]?._data));
           } else {
             setVisible(true);
             setMessageSnackbar('Wrong Password');

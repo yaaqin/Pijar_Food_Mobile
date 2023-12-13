@@ -23,6 +23,7 @@ import Registerscreen from './screen/Register.screen';
 import Profilescreen from './screen/Profile.screen';
 import Kategoriscreen from './screen/Kategori.screen';
 import Upcoming from './screen/upcoming.screen';
+import editProfileScreen from './screen/Edit-Profile.screen';
 
 function App() {
   const Stack = createNativeStackNavigator();
@@ -68,6 +69,11 @@ function App() {
           <Stack.Screen
             name="Upcoming"
             component={Upcoming}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="EditProfile"
+            component={editProfileScreen}
             options={{headerShown: false}}
           />
         </Stack.Navigator>
