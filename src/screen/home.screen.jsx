@@ -7,13 +7,24 @@ import {
   Image,
   ImageBackground,
   ScrollView,
-  TouchableHighlight,
   TouchableWithoutFeedback,
 } from 'react-native';
-import {Searchbar} from 'react-native-paper';
+import {Searchbar, Button} from 'react-native-paper';
 import recipeList from '../api/recipe.json';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function HomeScreen({navigation}) {
+  const [Data, setData] = React.useState({});
+
+  const getProfile = async () => {
+    try {
+      const user = await AsyncStorage.getItem('users');
+      setData(user);
+    } catch (error) {
+      console.log(`get data failed ${error}`);
+    }
+  };
+  console.log(Data);
   const menuCategory = [
     {
       icon: (
@@ -77,6 +88,13 @@ function HomeScreen({navigation}) {
   };
   // const jadi = searchData(keywords)
 
+  React.useEffect(() => {
+    setTimeout(() => {
+    }, 2000);
+    getProfile();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <ScrollView>
       <View
@@ -89,12 +107,21 @@ function HomeScreen({navigation}) {
           position: 'relative',
         }}>
         <View style={{position: 'absolute', right: 20, top: 20}}>
-          <TouchableWithoutFeedback
-            onPress={() => navigation.navigate('Hamburger')}>
-            <Image
-              source={require('../assets/more.png')}
-              style={{height: 30, width: 30}}></Image>
-          </TouchableWithoutFeedback>
+          {Data === null ? (
+            <TouchableWithoutFeedback
+              onPress={() => navigation.navigate('Login')}>
+              <Button style={{backgroundColor: '#FFEAD4'}}>
+                <Text style={{color: '#555', fontWeight: 500}}>Login</Text>
+              </Button>
+            </TouchableWithoutFeedback>
+          ) : (
+            <TouchableWithoutFeedback
+              onPress={() => navigation.navigate('Profile')}>
+              <Image
+                source={require('../assets/user.png')}
+                style={{height: 30, width: 30}}></Image>
+            </TouchableWithoutFeedback>
+          )}
         </View>
         <Image
           source={require('../assets/chef-mama.png')}

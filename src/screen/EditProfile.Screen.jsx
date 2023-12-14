@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
-export default function editProfileScreen({navigation}) {
+export default function EditProfileScreen({navigation}) {
   return (
     <ScrollView>
       <View>
@@ -97,12 +97,12 @@ export default function editProfileScreen({navigation}) {
                       textShadowOffset: {width: 1, height: 1},
                       textShadowRadius: 2,
                     }}
-                    name="user"
+                    name="lock"
                     size={30}
                     color="#fdc6ae"
                   />
                   <Button fon style={{color: 'yellow', fontSize: 15}}>
-                    <Text style={{color: 'black'}}>Edit Your Account</Text>
+                    <Text style={{color: 'black', marginLeft: 25}}>Edit Your Account</Text>
                   </Button>
                 </View>
                 <Icon

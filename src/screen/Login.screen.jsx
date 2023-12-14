@@ -12,8 +12,11 @@ import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import {ElevationLevels} from 'react-native-paper/lib/typescript/src/types';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {doLogin} from '../redux/actions/auth';
+import useDispatch from 'react-redux';
 
 export default function Loginscreen({navigation}) {
+  const dispatch = useDispatch();
   const [email, setEmail] = React.useState('');
   const [passwords, setPassword] = React.useState('');
   const [Snackbarbg, setSnackbarbg] = React.useState('');
@@ -22,15 +25,17 @@ export default function Loginscreen({navigation}) {
   const [messageSnackbar, setMessageSnackbar] = React.useState('');
   const hideSnackbar = () => setVisible(false);
   const handleLogin = () => {
-    firestore()
-      .collection('users')
-      .where('email', '==', email)
-      .get()
+    // firestore()
+    //   .collection('users')
+    //   .where('email', '==', email)
+    //   .get()
+    dispatch(doLogin(email))
       .then(async querySnapshot => {
         let tempData = [];
         querySnapshot.forEach(documentSnapshot => {
           tempData.push(documentSnapshot);
         });
+        console.log(JSON.stringify(tempData[0]?._data));
 
         if (tempData.length == 0) {
           setVisible(true);
@@ -43,6 +48,7 @@ export default function Loginscreen({navigation}) {
             setTimeout(() => {
               navigation.navigate('Home');
             }, 2000);
+            // await setCookie("user", JSON.stringify(tempData[0]?._data))
             await AsyncStorage.setItem(
               'users',
               JSON.stringify(tempData[0]?._data),
@@ -55,7 +61,8 @@ export default function Loginscreen({navigation}) {
             setSnackbarbg('#842049');
           }
         }
-      });
+      }
+      );
   };
   return (
     <ScrollView>
@@ -105,6 +112,7 @@ export default function Loginscreen({navigation}) {
             onChangeText={setEmail}
             mode="outlined"
             iconColor="black"
+            style={{borderColor: '#fdc6ae'}}
             left={
               <TextInput.Icon
                 icon={() => (
@@ -118,7 +126,7 @@ export default function Loginscreen({navigation}) {
             onChangeText={setPassword}
             mode="outlined"
             secureTextEntry
-            style={{marginTop: 15, marginBottom: 10}}
+            style={{borderColor: 'red', marginTop: 15, marginBottom: 10}}
             iconColor="black"
             left={
               <TextInput.Icon

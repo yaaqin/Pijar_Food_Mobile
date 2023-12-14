@@ -12,8 +12,10 @@ import {
 // import {black} from 'react-native-paper/lib/typescript/src/styles/themes/v2/colors';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import recipeList from '../api/recipe.json';
+import { LogBox } from 'react-native';
 
-export default function Kategoriscreen({navigation, route}) {
+export default function KategoriScreen({navigation, route}) {
+  LogBox.ignoreLogs([ 'Non-serializable values were found in the navigation state', ]);
   const {type} = route.params;
   return (
     <ScrollView>

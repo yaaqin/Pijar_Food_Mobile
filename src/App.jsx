@@ -21,9 +21,9 @@ import Hamburgerscreen from './screen/Hamburger.screen';
 import Loginscreen from './screen/Login.screen';
 import Registerscreen from './screen/Register.screen';
 import Profilescreen from './screen/Profile.screen';
-import Kategoriscreen from './screen/Kategori.screen';
+import KategoriScreen from './screen/Kategori.Screen';
 import Upcoming from './screen/upcoming.screen';
-import editProfileScreen from './screen/Edit-Profile.screen';
+import EditProfileScreen from './screen/EditProfile.Screen';
 
 function App() {
   const Stack = createNativeStackNavigator();
@@ -63,7 +63,7 @@ function App() {
           />
           <Stack.Screen
             name="Kategori"
-            component={Kategoriscreen}
+            component={KategoriScreen}
             options={{headerShown: false}}
           />
           <Stack.Screen
@@ -73,7 +73,7 @@ function App() {
           />
           <Stack.Screen
             name="EditProfile"
-            component={editProfileScreen}
+            component={EditProfileScreen}
             options={{headerShown: false}}
           />
         </Stack.Navigator>
