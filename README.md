@@ -1,9 +1,10 @@
 # Mama Recipe Mobile
 
-Mama Recipe merupakan salah satu project aplikasi mobile dimana kita bisa melihat berbagai resep menu makanan
+Selamat datang di Mama Recipe, aplikasi revolusioner yang akan membawa pengalaman memasak dan menikmati makanan dan minuman Anda ke level berikutnya! Dengan antarmuka yang intuitif dan kreatif, Mama Recipe adalah sahabat setia Anda dalam memasak, memberikan inspirasi tak terbatas untuk menu makanan dan minuman yang lezat.
 
+Aplikasi ini menawarkan lebih dari sekadar kumpulan resep biasa. Dengan fitur pencarian canggih, Anda dapat menemukan ide-ide segar untuk setiap kesempatan, mulai dari resep sarapan yang menyegarkan hingga hidangan makan malam yang memukau. Berbagai kategori seperti "Klasik dengan Sentuhan Modern", "Petualangan Rasa", dan "Makanan Sehat Tanpa Kompromi" akan memandu Anda dalam mengeksplorasi ragam kuliner yang tak terbatas.
 
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+Ingin membuat masakan spesial dengan bahan yang ada di lemari dapur Anda? Mama Recipe memiliki fitur "Buat Sendiri" yang memungkinkan Anda menciptakan resep pribadi dan menyimpannya untuk digunakan kapan saja. Bagikan kreasi kuliner unik Anda dengan komunitas Mama Recipe dan dapatkan umpan balik positif dari sesama pecinta masakan.
 
 # Getting Started
 
