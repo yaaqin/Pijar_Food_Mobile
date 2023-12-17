@@ -16,8 +16,8 @@ import {useSelector} from 'react-redux';
 
 export default function Profilescreen({navigation}) {
   const Result = useSelector(state => state.user);
-  console.log(Result)
-  // const {resultUser} = state;
+  const {resultUser} = Result;
+  console.log(resultUser.fullname)
 
 
   const [Data, setData] = React.useState({});

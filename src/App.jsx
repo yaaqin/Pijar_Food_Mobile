@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -25,11 +26,15 @@ import KategoriScreen from './screen/Kategori.Screen';
 import Upcoming from './screen/upcoming.screen';
 import EditProfileScreen from './screen/EditProfile.Screen';
 
+import { store } from './store';
+import { Provider } from 'react-redux'
+
 function App() {
   const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
       <PaperProvider>
+      <Provider store={store}>
         <Stack.Navigator>
           <Stack.Screen
             name="Home"
@@ -77,6 +82,7 @@ function App() {
             options={{headerShown: false}}
           />
         </Stack.Navigator>
+        </Provider>
       </PaperProvider>
     </NavigationContainer>
   );
