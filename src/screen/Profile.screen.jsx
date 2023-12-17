@@ -12,7 +12,14 @@ import {Button} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import {Touchable} from 'react-native';
 
+import {useSelector} from 'react-redux';
+
 export default function Profilescreen({navigation}) {
+  const Result = useSelector(state => state.user);
+  console.log(Result)
+  // const {resultUser} = state;
+
+
   const [Data, setData] = React.useState({});
   const [Isloading, setIsloading] = React.useState({});
 
@@ -47,7 +54,7 @@ export default function Profilescreen({navigation}) {
     getProfile();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(Data);
+  // console.log(Data);
   return (
     <ScrollView>
       {Isloading === true ? (
@@ -74,7 +81,7 @@ export default function Profilescreen({navigation}) {
                 overflow: 'hidden',
               }}></ImageBackground>
             <Text style={{marginTop: 10, fontSize: 20, color: 'black'}}>
-              Yaqin
+            {/* {resultUser.username} */}Yaqin
             </Text>
           </View>
           <View style={{justifyContent: 'center', flexDirection: 'row'}}>
