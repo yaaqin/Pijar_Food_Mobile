@@ -6,6 +6,22 @@ Aplikasi ini menawarkan lebih dari sekadar kumpulan resep biasa. Dengan fitur pe
 
 Ingin membuat masakan spesial dengan bahan yang ada di lemari dapur Anda? Mama Recipe memiliki fitur "Buat Sendiri" yang memungkinkan Anda menciptakan resep pribadi dan menyimpannya untuk digunakan kapan saja. Bagikan kreasi kuliner unik Anda dengan komunitas Mama Recipe dan dapatkan umpan balik positif dari sesama pecinta masakan.
 
+# Fitur Utama
+Pencarian Makanan: Temukan resep dan informasi terperinci tentang makanan favorit Anda.
+Kategori Makanan: Jelajahi makanan berdasarkan kategori, seperti makanan penutup, hidangan utama, dan lainnya.
+Komentar: Berikan pendapat anda mengenai resep anda senangi.
+Resep Langkah demi Langkah: Ikuti Video Tutorial yang tersedia pada halaman setiap resep yang ingin anda buat.
+
+# Teknologi yang Digunakan
+React: Library JavaScript untuk membangun antarmuka pengguna yang responsif.
+React Router: Menangani navigasi di aplikasi single-page.
+Redux: Manajemen keadaan untuk memudahkan pengelolaan data aplikasi.
+Firebase: Untuk penyimpanan data favorit pengguna.
+Axios: Untuk melakukan permintaan HTTP ke server backend.
+
+# Cara Menggunakan Aplikasi
+
+
 # Getting Started
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
