@@ -22,6 +22,25 @@ Ingin membuat masakan spesial dengan bahan yang ada di lemari dapur Anda? Mama R
 # Cara Menggunakan Aplikasi
 
 
+# Display
+<table>
+<tr>
+  <td align='center'><b>Home Page</b></td>
+</tr>
+<tr>
+  <td>
+    <image src="https://github.com/yaaqin/Assets/blob/main/Readme/Tickitz/Display/1.png" alt="Home Page" width=100%>
+  </td>
+   <td>
+    <image src="https://github.com/yaaqin/Assets/blob/main/Readme/Tickitz/Display/2.png" alt="Home Page" width=100%>
+  </td>
+   <td>
+    <image src="https://github.com/yaaqin/Assets/blob/main/Readme/Tickitz/Display/3.png" alt="Home Page" width=100%>
+  </td>
+</tr>
+</table>
+
+
 # Getting Started
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
