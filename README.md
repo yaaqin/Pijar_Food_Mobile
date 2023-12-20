@@ -1,5 +1,9 @@
 # Mama Recipe Mobile
 
+<p align='center'>
+<img width="500" src="https://github.com/yaaqin/Assets/blob/main/Readme/MamaRecipe.png" />
+</p>
+
 Selamat datang di Mama Recipe, aplikasi revolusioner yang akan membawa pengalaman memasak dan menikmati makanan dan minuman Anda ke level berikutnya! Dengan antarmuka yang intuitif dan kreatif, Mama Recipe adalah sahabat setia Anda dalam memasak, memberikan inspirasi tak terbatas untuk menu makanan dan minuman yang lezat.
 
 Aplikasi ini menawarkan lebih dari sekadar kumpulan resep biasa. Dengan fitur pencarian canggih, Anda dapat menemukan ide-ide segar untuk setiap kesempatan, mulai dari resep sarapan yang menyegarkan hingga hidangan makan malam yang memukau. Berbagai kategori seperti "Klasik dengan Sentuhan Modern", "Petualangan Rasa", dan "Makanan Sehat Tanpa Kompromi" akan memandu Anda dalam mengeksplorasi ragam kuliner yang tak terbatas.
@@ -25,19 +29,30 @@ Ingin membuat masakan spesial dengan bahan yang ada di lemari dapur Anda? Mama R
 # Display
 <table>
 <tr>
-  <td align='center'><b>Home Page</b></td>
+  <td align='center'><b>Auth Page</b></td>
 </tr>
 <tr>
   <td>
     <image src="https://github.com/yaaqin/Assets/blob/main/Readme/Tickitz/Display/1.png" alt="Home Page" width=100%>
   </td>
-   <td>
+</tr>
+<tr>
+  <td align='center'><b>Detail Page</b></td>
+</tr>
+<tr>
+  <td>
     <image src="https://github.com/yaaqin/Assets/blob/main/Readme/Tickitz/Display/2.png" alt="Home Page" width=100%>
   </td>
-   <td>
+</tr>
+<tr>
+  <td align='center'><b>Other Screen</b></td>
+</tr>
+<tr>
+  <td>
     <image src="https://github.com/yaaqin/Assets/blob/main/Readme/Tickitz/Display/3.png" alt="Home Page" width=100%>
   </td>
 </tr>
+
 </table>
 
 
