@@ -117,6 +117,6 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Related Project
 
-[`Website Pijarfood`](https://github.com/sayarama/pijar-food-fe.git)
+[`Website Pijarfood`](https://github.com/yaaqin/pijar-food-fe)
 [`Live Website Pijarfood`](https://pijar-food-team-b.vercel.app/)
 
