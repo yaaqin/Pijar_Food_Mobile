@@ -1,7 +1,7 @@
 # Mama Recipe Mobile
 
 <p align='center'>
-<img width="500" src="https://github.com/yaaqin/Assets/blob/main/Readme/MamaRecipe.png" />
+<img width="500" src="https://github.com/yaaqin/Assets/blob/main/Readme/MamaRecipe/MamaRecipe.png" />
 </p>
 
 Selamat datang di Mama Recipe, aplikasi revolusioner yang akan membawa pengalaman memasak dan menikmati makanan dan minuman Anda ke level berikutnya! Dengan antarmuka yang intuitif dan kreatif, Mama Recipe adalah sahabat setia Anda dalam memasak, memberikan inspirasi tak terbatas untuk menu makanan dan minuman yang lezat.
