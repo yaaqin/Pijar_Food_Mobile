@@ -31,7 +31,7 @@ Ingin membuat masakan spesial dengan bahan yang ada di lemari dapur Anda? Mama R
 - Clone repository
 
 ```
-  git clone https://github.com/sayarama/pijarfoodmobile
+  git clone https://github.com/yaaqin/Pijar_Food_Mobile
 ```
 
 - Masuk kedalam repository
