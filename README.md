@@ -25,6 +25,55 @@ Ingin membuat masakan spesial dengan bahan yang ada di lemari dapur Anda? Mama R
 
 # Cara Menggunakan Aplikasi
 
+### Installation
+
+
+- Clone repository
+
+```
+  git clone https://github.com/sayarama/pijarfoodmobile
+```
+
+- Masuk kedalam repository
+
+```
+cd pijarfoodmobile
+```
+
+- Install module
+
+```
+npm install
+```
+
+## Step 1: Jalankan Metro Server
+
+Pertama Kamu perlu menjalankan **Metro**,
+
+Untuk Memulai Metro, Jalankan Perintah ini pada terminal React Native project anda:
+
+```bash
+# Menggunakan npm
+npm start
+
+# Atau Menggunakan Yarn
+yarn start
+```
+
+## Step 2: Mulai Aplikasi
+
+Setelah Metro berhasil dijalankan, selanjutnya anda diminta untuk memilih untuk menjalankan projek pada perangkat yang ingin anda gunakan
+
+### Untuk Android
+
+```bash
+# Menggunakan npm
+npm run android
+
+# Atau Menggunakan Yarn
+yarn android
+```
+
 
 # Display
 <table>
@@ -55,81 +104,19 @@ Ingin membuat masakan spesial dengan bahan yang ada di lemari dapur Anda? Mama R
 
 </table>
 
+## Contributing
 
-# Getting Started
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/NewFeature`)
+3. Add your Changes (`git add .`)
+4. Commit your Changes (`git commit -m 'Add some NewFeature'`)
+5. Push to the Branch (`git push origin feature/NewFeature`)
+6. Open a Pull Request on Github
 
-## Step 1: Start the Metro Server
+## Related Project
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+[`Website Pijarfood`](https://github.com/sayarama/pijar-food-fe.git)
+[`Live Website Pijarfood`](https://pijar-food-team-b.vercel.app/)
 
-To start Metro, run the following command from the _root_ of your React Native project:
-
-```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
-```
-
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
