@@ -82,7 +82,7 @@ yarn android
 </tr>
 <tr>
   <td>
-    <image src="https://github.com/yaaqin/Assets/blob/main/Readme/Tickitz/Display/1.png" alt="Home Page" width=100%>
+    <image src="https://github.com/yaaqin/Assets/blob/main/Readme/MamaRecipe/1.png" alt="Home Page" width=100%>
   </td>
 </tr>
 <tr>
@@ -90,7 +90,7 @@ yarn android
 </tr>
 <tr>
   <td>
-    <image src="https://github.com/yaaqin/Assets/blob/main/Readme/Tickitz/Display/2.png" alt="Home Page" width=100%>
+    <image src="https://github.com/yaaqin/Assets/blob/main/Readme/MamaRecipe/2.png" alt="Home Page" width=100%>
   </td>
 </tr>
 <tr>
@@ -98,7 +98,7 @@ yarn android
 </tr>
 <tr>
   <td>
-    <image src="https://github.com/yaaqin/Assets/blob/main/Readme/Tickitz/Display/3.png" alt="Home Page" width=100%>
+    <image src="https://github.com/yaaqin/Assets/blob/main/Readme/MamaRecipe/3.png" alt="Home Page" width=100%>
   </td>
 </tr>
 
